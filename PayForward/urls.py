@@ -22,7 +22,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #develop
     url(r'^uploads/(?P<path>.*)$','django.views.static.serve',
-        {'document_root':'/home/master/djcode/payforward/uploads'}),
+        {'document_root':'/home/ruslan/payforward/uploads'}),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',
-        {'document_root':'/home/master/djcode/payforward/media'}),
+        {'document_root':'/home/ruslan/payforward/media'}),
 )
