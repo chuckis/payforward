@@ -1,78 +1,40 @@
 {% extends 'base.html' %}
 {% block scripts %}<script src="/media/js/index.js"></script>{% endblock %}
 {% block content %}
-<div id="slide">
-  <div class="slider">
-    <ul class="items">
-      <li><img src="/media/images/slider-1.jpg" alt="">
-        <div class="banner">
-          <p class="text-1">Нужна <strong>помощь?</strong></p>
-          <p class="text-2">Здесь ты можешь попросить людей о любой услуге и люди тебе помогут!</p>
-        </div>
-      </li>
-      <li><img src="/media/images/slider-2.jpg" alt="">
-        <div class="banner">
-          <p class="text-1">Ты не должен <strong>платить им!</strong></p>
-          <p class="text-2">Взамен ты должен оказать три любых услуги другим людям, которые просят помочь им на сайте.</p>
-        </div>
-      </li>
-      <li><img src="/media/images/slider-3.jpg" alt="">
-        <div class="banner">
-          <p class="text-1">Они ещё трём<strong>и так далее!</strong></p>
-          <p class="text-2">Люди будут всё больше и больше помогать друг другу и в мире станет больше добра!</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+
 <!--==============================content================================-->
-<section id="content">
-  <div class="container_12">
-    <div class="grid_6 box-1"> <img src="/media/images/page1-img1.png" alt="">
-      <div class="extra-wrap">
-        <h2><a href="/create_task" id="create_task">Есть просьба!</a></h2>
-        <p>Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
-      </div>
+ <div class="bs-header" id="content">
+    <div class="col-xs-6"> 
+        <button type="button" class="btn btn-success" ><a href="/create_task">Есть просьба!</a></button>
     </div>
-    <div class="grid_6 box-1"> <img src="/media/images/login.png" alt="">
-      <div class="extra-wrap">
-        <h2>Вход</h2>
-          <div id="form" class="login">
-              <input type="text" value="Логин" onblur="if(this.value=='') this.value='Логин'" onfocus="if(this.value =='Логин' ) this.value=''">
-              <input type="text" value="Пароль" onblur="if(this.value=='') this.value='Пароль'" onfocus="if(this.value =='Пароль' ) this.value=''">
-              <a class="link" href="/register">Регистрация</a><a class="link" href="/remember">Забыли пароль?!</a>
-          </div>
-      </div>
-    </div>
-    <div class="grid_12 box-2">
-      <div>
-        <p class="text-3">По мативам фильма <span>Заплати другому</span></p>
-        <p class="text-4">Вместе мы способны изменить мир к лучшему, это проще, чем ты думаешь!</p>
-      </div>
-    </div>
-    <div class="grid_8">
-      <h2 class="top-1">Важные просьбы</h2>
-      <div class="box-3">
-        {% for task in important_tasks %}
-            <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
-              <p>{{ task.description|slice:"100" }}</p>
-            </div>
-        {% endfor %}
-      </div>
-      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
-    <div class="grid_8">
-      <h2 class="top-1">Свежие просьбы</h2>
-        <div class="box-3">
-              {% for task in fresh_tasks %}
-                  <div> <img src="/media/images/page1-img3.jpg" alt="" class="img-border"> <a href="/task/{{ task.id }}" class="link-2">{{ task.title }}</a>
-                      <p>{{ task.description|slice:"100" }}</p>
-                  </div>
-              {% endfor %}
-        </div>
-      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
-    <div class="clear"></div>
-  </div>
-</section>
+ </div>
+ <div><p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p></div>
+        
+    
+<div class="list-group left col-xs-6">
+    <h2 class="top-1">Важные просьбы</h2>
+  {% for task in important_tasks %}
+  <a href="/task/{{ task.id }}" class="list-group-item">
+    <h4 class="list-group-item-heading">{{ task.title }}</h4>
+    <p class="list-group-item-text">{{ task.description|slice:"100" }}</p>
+  </a>
+  {% endfor %}
+  <a href="/tasks" class="button top-4">Больше просьб</a>
+</div>
+
+<div class="list-group right col-xs-6">
+    <h2 class="top-1">Свежие просьбы</h2>
+  {% for task in fresh_tasks %}
+  <a href="/task/{{ task.id }}" class="list-group-item">
+    <h4 class="list-group-item-heading">{{ task.title }}</h4>
+    <p class="list-group-item-text">{{ task.description|slice:"100" }}</p>
+  </a>
+  {% endfor %}
+  <a href="/tasks" class="button top-4">Больше просьб</a>
+</div>
+      
+ 
+
     <div id="create_task_dialog" title="Добавление просьбы">
         <form method="POST" action="/create_task/" enctype="multipart/form-data" id="create_task_form">
             {% csrf_token %}
