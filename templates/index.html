@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
 {% block scripts %}<script src="/media/js/index.js"></script>{% endblock %}
-{% block content %}
+
 
 <!--==============================content================================-->
- <div class="bs-header" id="content">
-    <div class="col-xs-6"> 
-        <button type="button" class="btn btn-success" ><a href="/create_task">Есть просьба!</a></button>
-    </div>
- </div>
- <div><p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p></div>
+ <div class="container">
+     
+{% block content %}
+{% load crispy_forms_tags %}
+    
+    <div class="bs-header" id="content"> 
+       <div class="container">
+             <div class="container">
+                <button type="button" class="btn btn-success" ><a href="/create_task">Есть просьба!</a></button>
+             </div>
+                <div>
+                    <p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
+                </div>
+       </div>
+  </div>
+ 
         
     
 <div class="list-group left col-xs-6">
@@ -42,4 +52,6 @@
             <input type="submit" value="Добавить">
         </form>
     </div>
-{% endblock %}
+ {% endblock %}   
+</div>
+

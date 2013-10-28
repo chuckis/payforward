@@ -10,8 +10,8 @@
 
 </head>
 <body>
-<header>
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul class = "nav navbar-nav navbar-right">
                     <li><a href="/tasks">Просьбы</a></li>
                     <li><a href="/people">Люди</a></li>
@@ -22,12 +22,13 @@
                 <a class="navbar-brand navbar-left" href="/">Payforward</a>
             </nav>
 </header>
-{% block content %}{% endblock %}
+<div class="container">
+    {% block content %}{% endblock %}
+</div>    
+
 <!--==============================footer=================================-->
 <footer>
-    <p>© 2013 PayForward
-    
-        Сайт создан веб-студией  <a target="_blank" href="http://yourprofit.me/" class="link">Profit</a></p>
+    <p>© 2013 PayForward</p>
    
 </footer>
 </body>

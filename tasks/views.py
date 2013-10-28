@@ -4,6 +4,7 @@ from forms import *
 from django.template import RequestContext
 from django.http import HttpResponseBadRequest
 import random
+#from jsonview.decorators import json_view
 
 def index(request):
     tasks = Task.objects.all()
@@ -11,6 +12,17 @@ def index(request):
     fresh_tasks = tasks.order_by('-create_date')[0:4]
     form = CreateTaskForm()
     return render_to_response('index.html',{'important_tasks':important_tasks,'fresh_tasks':fresh_tasks, 'form':form}, context_instance=RequestContext(request))
+    
+#@jsonview
+#def save_example_form(request):
+    #form = ExampleForm(request.POST or None)
+    #if form.is_valid():
+        ## You could actually save through AJAX and return a success code here
+        #form.save()
+        #return {'success': True}
+
+    #form_html = render_crispy_form(form)
+    #return {'success': False, 'form_html': form_html}
 
 def create_task(request):
     if request.method == 'POST':
