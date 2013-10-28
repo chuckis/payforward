@@ -4,7 +4,8 @@ from forms import *
 from django.template import RequestContext
 from django.http import HttpResponseBadRequest
 import random
-#from jsonview.decorators import json_view
+
+from jsonview.decorators import json_view
 
 def index(request):
     tasks = Task.objects.all()
@@ -23,7 +24,8 @@ def index(request):
 
     #form_html = render_crispy_form(form)
     #return {'success': False, 'form_html': form_html}
-
+    
+@json_view
 def create_task(request):
     if request.method == 'POST':
         form = CreateTaskForm(request.POST, request.FILES,)
@@ -34,8 +36,10 @@ def create_task(request):
                 task.task_photo = 'task_photos/page4-img'+str(number)+'.jpg'
             task.user = request.user
             task.save()
-            return redirect('/task/'+str(task.id))
-    return HttpResponseBadRequest()
+            return {'success':True} 
+            redirect('/task/'+str(task.id))
+    form_html = render_crispy_form(form)
+    return{'success': False, 'form_html': form_html}
 
 def tasks(request):
     tasks = Task.objects.all()
