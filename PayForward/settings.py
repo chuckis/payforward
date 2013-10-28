@@ -113,6 +113,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.contrib.messages.middleware.MessageMiddleware',
+    #'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     'django.contrib.flatpages',
