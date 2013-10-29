@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
 <!--==============================content================================-->
-<section id="content">
-  <div class="container_12 top">
-    <div class="grid_12">
-        <div id="form" class="find">
+<section class="bs-header">
+  <div id="form" class="find">
             <input type="text" value="Поиск" onblur="if(this.value=='') this.value='Поиск'" onfocus="if(this.value =='Поиск' ) this.value=''">
         </div>
-      <h2 class="p5">Акктуальные просьбы</h2>
-    </div>
+    
+        
+      <h2>Актуальные просьбы</h2>
+   <div class="list-group left col-xs-9">
     {% for task in tasks %}
-        <div class="grid_4">
-          <div> <img src="/media/images/page4-img1.jpg" alt="" class="img-border">
-            <p class="top-4"><a href="/task/{{ task.id }}" class="link">{{ task.title }}</a><br>
-              {{ task.description|slice:"100" }}</p>
-            <a href="/task/{{ task.id }}" class="button top-4">Подробнее</a> </div>
-         </div>
+        
+           
+            <a href="/task/{{ task.id }}" class="list-group-item ">
+               
+                 <h4 class="list-group-item-heading">{{ task.title }}</h4>
+                 <p class="list-group-item-text">
+                    {{ task.description|slice:"100" }}
+                 </p>
+              
+            </a>
+            
+         
     {% endfor %}
-    <div class="clear"></div>
-  </div>
+   </div>
+ 
 </section>
 {% endblock %}
