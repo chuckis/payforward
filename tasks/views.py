@@ -26,7 +26,7 @@ def create_task(request):
             task.user = request.user
             task.save()
             return redirect('/task/'+str(task.id))
-    return HttpResponseBadRequest()
+    return redirect('/create_task')
 
 
 def tasks(request):
