@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
-{% block scripts %}<script src="/media/js/index.js"></script>{% endblock %}
+{% block scripts %}<script src="/media/js/bootstrap.js"></script>
+<script src="media/js/jquery.js"></script>
+<script src="/media/js/bootstrap-modal.js"></script>
+
+
+
+{% endblock %}
 
 
 <!--==============================content================================-->
@@ -9,11 +15,12 @@
 {% load crispy_forms_tags %}
     
     <div class="bs-header" id="content"> 
-       <div class="container">
-             <div class="container">
-                <button type="button" class="btn btn-success" ><a href="/create_task">Есть просьба!</a></button>
-             </div>
-                <div>
+       <div class=" ">
+          
+
+    <p><a data-toggle="modal" href="#example" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
+          {% include create_task.thml %}
+                <div class = "alert">
                     <p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
                 </div>
        </div>
@@ -21,40 +28,36 @@
  
         
     
-<div class="list-group left col-xs-6">
-    <h2 class="top-1">Важные просьбы</h2>
+<div class = "container">
+    <div class="list-group left col-xs-6">
+    <h2 class=" ">Важные просьбы</h2>
   {% for task in important_tasks %}
   <a href="/task/{{ task.id }}" class="list-group-item">
     <h4 class="list-group-item-heading">{{ task.title }}</h4>
     <p class="list-group-item-text">{{ task.description|slice:"100" }}</p>
   </a>
   {% endfor %}
-  <a href="/tasks" class="button top-4">Больше просьб</a>
+  
 </div>
 
 <div class="list-group right col-xs-6">
-    <h2 class="top-1">Свежие просьбы</h2>
+    <h2 class=" ">Свежие просьбы</h2>
   {% for task in fresh_tasks %}
   <a href="/task/{{ task.id }}" class="list-group-item">
     <h4 class="list-group-item-heading">{{ task.title }}</h4>
     <p class="list-group-item-text">{{ task.description|slice:"100" }}</p>
   </a>
   {% endfor %}
-  <a href="/tasks" class="button top-4">Больше просьб</a>
+ 
 </div>
+
+
+</div>
+<div class="container"><a href="/tasks" class="btn btn-primary btn-lg btn-block">Больше просьб</a> </div>
       
  
 
-    <div id="create_task_dialog" title="Добавление просьбы">
-        <form method="POST" action="/create_task/" enctype="multipart/form-data" id="create_task_form">
-            {% csrf_token %}
-            {{ form }}
-<!--
 
--->
-            <input type="submit" value="Добавить">
-        </form>
-    </div>
  {% endblock %}   
 </div>
 

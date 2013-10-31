@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <!--==============================content================================-->
-<section id="content">
-  <div class="bs-header">
+
+    <section class="bs-header">
+<div >
       <div id="form" class="find">
           <input type="text" value="Поиск" onblur="if(this.value=='') this.value='Поиск'" onfocus="if(this.value =='Поиск' ) this.value=''">
       </div>
       <h2>Эти люди творят добрые дела</h2>
       <div class="clear"></div>
-
-      <div class="box-6 top-5 fleft">
-        <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border people">
-        <p><a href="#" class="link">Mickey Goldberg</a></p>
-      </div>
-     </div>
+         {{ people }}
+</div>
  </section>
+
 {% endblock %}

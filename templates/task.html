@@ -1,25 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 <!--==============================content================================-->
-<section id="content">
-  <div class="container_12 top">
-    <div class="grid_8">
-      <h2>{{ task.title }}</h2>
-      <div class="box-5 right-1"> <img src="/uploads/{{ task.task_photo }}" width="560" alt="" class="img-border fleft">
-        <p>{{ task.description }}</p>
-      </div>
+<section class="bs-header">
+<div class="">
+    <div class="left pull-left col-xs-6">
+     <article>
+          <h2>{{ task.title }}</h2>
+          <img src="/uploads/{{ task.task_photo }}">
+        <p>
+            {{ task.description }}
+        </p>
+    </article>
+      
+      
  </div>
-    <div class="grid_4">
+    <div class="right pull-right">
       <h2>Ещё просьбы</h2>
-      {% for tsk in tasks %}
-          <div class="box-6 top-5"> <img src="/media/images/page2-img2.jpg" alt="" class="img-indent img-border">
-            <p><a href="/task/{{ tsk.id }}" class="link">{{ tsk.title }}</a><br>
-              {{ tsk.description }}</p>
-          </div>
-      {% endfor %}
-      <a href="/tasks" class="button top-4">Больше просьб</a> </div>
-      <a class="send"></a>
-      <div class="clear"></div>
+       {% for task in tasks %}
+  <a href="/task/{{ task.id }}" class="container">
+    <div class="right col-xs-6">
+        <h4 class="list-group-item-heading">{{ task.title }}</h4>
+    <p class="list-group-item-text">{{ task.description|slice:"50" }}</p>
+    </div>
+    <img src="/task_photos/{{ task.task_photo }}.jpg" class="img-thumbnail left" width="20px">
+  </a>
+   
+  {% endfor %}
+      <a href="/tasks" class=" media btn btn-primary btn-sm">Больше просьб</a> 
       </div>
+
+</div>
 </section>
 {% endblock %}

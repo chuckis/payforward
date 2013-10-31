@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+    <div id="example" class="modal hide fade in" style="display: none; ">
+        <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Добавление просьбы</h3>
+            </div>
+        <div class="modal-body">
+         <form method="POST" action="/create_task/" enctype="multipart/form-data" >
+
+            {% csrf_token %}
+            {{ crispy form }}
+
+        
+            <input class="btn btn-success" type="submit" value="Добавить">
+         </form>
+        </div>
+        
+    </div>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+<script src="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>
+<script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script>
+</body>
+</html>

@@ -5,6 +5,9 @@ from tasks.views import *
 from django.contrib import admin
 admin.autodiscover()
 
+
+
+
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', index),

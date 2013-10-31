@@ -5891,9 +5891,7 @@ td.visible-print {
   -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
-.fade.in {
-  opacity: 1;
-}
+
 .collapse {
   display: none;
 }
@@ -5907,6 +5905,25 @@ td.visible-print {
   -webkit-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
+
+/*
+ ------------------------- custom ------------------------ 
+*/
 .bs-header{
   padding-top: 80px;
+}
+.footer {
+    position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    min-height: 200px;
+    clear:both;
+    background-image: url(img/footer_bkg.png);
+}
+.container {
+    height: auto; 
+    min-height: 100%;
+    padding-bottom: 200px;
+}
+.footer p{
+    padding: 30px;
 }

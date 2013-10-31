@@ -46,7 +46,7 @@ def tasks(request):
 
 def task(request,task_id):
     task = Task.objects.get(id=task_id)
-    tasks = Task.objects.exclude(id=task_id)[0:3]
+    tasks = Task.objects.exclude(id=task_id)[0:4]
 
     return render_to_response('task.html',{'task':task, 'tasks':tasks})
 
@@ -54,4 +54,5 @@ def profile(request,user_id):
     return render_to_response('profile.html')
 
 def people(request):
-    return render_to_response('people.html')
+    people = Profile.objects.all()
+    return render_to_response('people.html', {'people': people})
