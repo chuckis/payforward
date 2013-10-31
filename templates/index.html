@@ -12,14 +12,37 @@
  <div class="container">
      
 {% block content %}
-{% load crispy_forms_tags %}
+
     
     <div class="bs-header" id="content"> 
        <div class=" ">
+           
           
 
-    <p><a data-toggle="modal" href="#example" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
-          {% include create_task.thml %}
+    <p><a data-toggle="modal" href="/create_task" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
+          
+         
+<!--
+    <div id="example" class="modal hide fade in" style="display: none; ">
+        <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Добавление просьбы</h3>
+            </div>
+        <div class="modal-body">
+         <form method="POST" action="/create_task/" enctype="multipart/form-data" >
+                   <input class="btn btn-success" type="submit" value="Добавить">
+         </form>
+-->
+   {% load crispy_forms_tags %}
+{% crispy form form.helper %}
+{% crispy form %}
+      
+
+        
+  
+        </div>
+        
+    </div>
                 <div class = "alert">
                     <p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
                 </div>
