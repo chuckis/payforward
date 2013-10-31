@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block scripts %}<script src="/media/js/bootstrap.js"></script>
 <script src="media/js/jquery.js"></script>
-<script src="/media/js/bootstrap-modal.js"></script>
+<script src="media/js/bootstrap-modal.js"></script>
 
 
 
@@ -15,11 +15,11 @@
 
     
     <div class="bs-header" id="content"> 
-       <div class=" ">
+       
            
           
 
-    <p><a data-toggle="modal" href="/create_task" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
+ 
           
          
 <!--
@@ -33,20 +33,18 @@
                    <input class="btn btn-success" type="submit" value="Добавить">
          </form>
 -->
-   {% load crispy_forms_tags %}
-{% crispy form %}
-      
-
-        
-  
-        </div>
-        
+            <div id="example" class="modal hide fade in" style="display: none; ">
+                {% load crispy_forms_tags %}
+                {% crispy form %}
+                
+            </div>
     </div>
                 <div class = "alert">
                     <p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
                 </div>
-       </div>
-  </div>
+        <p><a data-toggle="modal" href="#example" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
+    </div>
+
  
         
     
@@ -78,7 +76,8 @@
 <div class="container"><a href="/tasks" class="btn btn-primary btn-lg btn-block">Больше просьб</a> </div>
       
  
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+<script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script> 
 
  {% endblock %}   
 </div>
