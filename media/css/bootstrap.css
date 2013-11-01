@@ -5927,3 +5927,13 @@ td.visible-print {
 .footer p{
     padding: 30px;
 }
+
+.bootform > form{
+    width: 400px;
+    height: 400px;
+    padding: 15px;
+    overflow: hidden;
+    left: 35%;
+    top: 25%;
+    background: white;
+}

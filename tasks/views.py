@@ -4,7 +4,7 @@ from forms import *
 from django.template import RequestContext
 from django.http import HttpResponseBadRequest
 import random
-from crispy_forms.utils import render_crispy_form
+#from crispy_forms.utils import render_crispy_form
 from jsonview.decorators import json_view
 
 def index(request):
@@ -26,7 +26,7 @@ def create_task(request):
             task.user = request.user
             task.save()
             return redirect('/task/'+str(task.id))
-    return redirect('/create_task')
+    return redirect('/')
 
 
 def tasks(request):
