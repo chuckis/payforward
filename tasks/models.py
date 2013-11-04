@@ -1,6 +1,28 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
+from thumbs import ImageWithThumbsField
+
+
+from south.modelsinspector import add_introspection_rules
+add_introspection_rules(
+    [
+        (
+            (ImageWithThumbsField, ),
+            [],
+            {
+                "verbose_name": ["verbose_name",{"default":None}],
+                "name": ["name", {"default": None}],
+                "width_field": ["width_field", {"default": None}],
+                "height_field":["height_field", {"default": None}],
+                "sizes": ["sizes", {"default": None}],
+             },
+         ),
+     ],
+["^thumbs\.ImageWithThumbsField",])
+
+#from django.db.models import ImageWithThumbsField
+
 
 class Category(models.Model):
     title = models.CharField(max_length=100, verbose_name='Категория')
@@ -37,8 +59,9 @@ class Task(models.Model):
     user = models.ForeignKey(User)
     category = models.ForeignKey(Category, related_name='tasks')
     rate = models.IntegerField(verbose_name = 'Рейтинг', default=0)
-    task_photo = models.ImageField(upload_to='task_photos', verbose_name='Фото', blank=True)
-    status = models.ForeignKey(Status, default=1)
+    task_photo = ImageWithThumbsField(upload_to='task_photos', verbose_name='Фото', blank=True, null=True,sizes=((50, 50),(150, 150),))
+    thumb_taskp_hoto = ImageWithThumbsField(upload_to='task_thumbs', verbose_name='Фото', blank=True,null=True, sizes=((50, 50),(150, 150),))
+    status = models.IntegerField(default=1)
     class Meta:
         verbose_name = 'задачи'
         verbose_name_plural = 'Задача'

@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^tasks/$',tasks),
     url(r'^people/$', people),
     url(r'^create_task/$', create_task),
+    url(r'^login/$', login_user),
     url(r'^profile/([0-9]+)?/$', profile),
     # url(r'^PayForward/', include('PayForward.foo.urls')),
 

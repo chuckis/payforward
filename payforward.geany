@@ -17,18 +17,17 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=10
+current_page=9
 FILE_NAME_0=1134;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/base.html;0;4
-FILE_NAME_1=1094;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/index.html;0;4
+FILE_NAME_1=840;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/index.html;0;4
 FILE_NAME_2=57;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/create_task.html;0;4
 FILE_NAME_3=896;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/tasks.html;0;4
-FILE_NAME_4=782;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/views.py;0;4
-FILE_NAME_5=1028;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/forms.py;0;4
+FILE_NAME_4=1147;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/views.py;0;4
+FILE_NAME_5=1172;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/forms.py;0;4
 FILE_NAME_6=0;Python;0;16;0;1;1;/home/ruslan/payforward/PayForward/urls.py;0;4
-FILE_NAME_7=118951;CSS;0;16;0;1;1;/home/ruslan/payforward/media/css/bootstrap.css;0;4
+FILE_NAME_7=119712;CSS;0;16;0;1;1;/home/ruslan/payforward/media/css/bootstrap.css;0;4
 FILE_NAME_8=0;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/models.py;0;4
-FILE_NAME_9=0;Javascript;0;16;0;1;1;/home/ruslan/payforward/media/js/bootstrap-modal.js;0;4
-FILE_NAME_10=1132;HTML;0;16;0;1;1;/home/ruslan/Рабочий стол/boots.html;0;4
+FILE_NAME_9=497;Python;0;16;0;1;1;/home/ruslan/payforward/PayForward/settings.py;0;4
 
 [VTE]
 last_dir=/home/ruslan/payforward

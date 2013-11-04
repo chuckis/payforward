@@ -21,7 +21,16 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+# try to fix 1452 error
+#DATABASE_OPTIONS = {"init_command": "SET foreign_key_checks = 0;"}
 
+#DATABASES = {
+    #'default': {
+        
+        #'STORAGE_ENGINE': 'MyISAM / INNODB / ETC'
+    #}
+#}
+ 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -125,7 +134,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'tasks',
-    'south',
+    #'south',
     'crispy_forms'
 )
 
