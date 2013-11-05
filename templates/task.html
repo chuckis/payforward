@@ -6,7 +6,7 @@
     <div class="left pull-left col-xs-6">
      <article>
           <h2>{{ task.title }}</h2>
-          <img src="/uploads/{{ task.task_photo }}">
+          <img src="{{ task.task_photo.url_150x150 }}">
         <p>
             {{ task.description }}
         </p>
@@ -22,8 +22,8 @@
         <h4 class="list-group-item-heading">{{ task.title }}</h4>
     <p class="list-group-item-text">{{ task.description|slice:"50" }}</p>
     </div>
-    <img src="/task_photos/{{ task.task_photo }}.jpg" class="img-thumbnail left" width="20px">
   </a>
+  <img src="{{ task.task_photo.url_50x50 }}" >
    
   {% endfor %}
       <a href="/tasks" class=" media btn btn-primary btn-sm">Больше просьб</a> 

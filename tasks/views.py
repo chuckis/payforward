@@ -40,7 +40,6 @@ def create_task(request):
             if not task.task_photo:
                 number = random.randint(1,6)
                 task.task_photo = 'task_photos/page4-img'+str(number)+'.jpg'
-            #task.thumb_taskp_hoto = task.task_photo.generate_thumb(img, thumb_size, format)    
             task.user = request.user
             task.save()
             return redirect('/task/'+str(task.id))
@@ -49,14 +48,13 @@ def create_task(request):
 
 def tasks(request):
     tasks = Task.objects.all()
-
-    return render_to_response('tasks.html',{'tasks':tasks})
+    return render_to_response('tasks.html',{'tasks':tasks}) #
 
 def task(request,task_id):
     task = Task.objects.get(id=task_id)
     tasks = Task.objects.exclude(id=task_id)[0:4]
-
     return render_to_response('task.html',{'task':task, 'tasks':tasks})
+    
 
 def profile(request,user_id):
     return render_to_response('profile.html')
