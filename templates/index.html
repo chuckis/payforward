@@ -23,12 +23,11 @@
                 {% crispy form form.helper %}
                 
                 </div>
+        {% if user.is_authenticated %}
         <p><a data-toggle="modal" href="#example" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
-
-
- 
-        
-    
+        {% else %}
+         <p> Прежде чем присоединиться к сообществу вы должны <a href="/register"> зарегистрироваться </a> </p>
+        {% endif %}
 
 <div class="list-group left col-xs-6">
     <h2 class=" ">Важные просьбы</h2>

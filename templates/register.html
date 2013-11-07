@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="bs-header">
+<form action=" " method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value= "Submit">
+</form>
+</section>
+{% endblock %}

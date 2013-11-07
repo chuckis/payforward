@@ -16,7 +16,9 @@ urlpatterns = patterns('',
     url(r'^people/$', people),
     url(r'^create_task/$', create_task),
     url(r'^login/$', login_user),
+    url(r'^logout/$', log_out),
     url(r'^profile/([0-9]+)?/$', profile),
+    url(r'^register/$', register),
     # url(r'^PayForward/', include('PayForward.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

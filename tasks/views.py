@@ -1,12 +1,14 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect
 from tasks.models import *
 from forms import *
+from django.core.context_processors import csrf
 from django.template import RequestContext
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-import random
-from crispy_forms.utils import render_crispy_form
+from django.contrib.auth.forms import UserCreationForm
+#import random
+from crispy_forms.utils import render_crispy_form #?
 from thumbs import generate_thumb
 
 
@@ -27,7 +29,8 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect('/create_task/')
+                return redirect('/')
+            return redirect('/register')
     return render_to_response('login.html', context_instance=RequestContext(request))
 
 
@@ -48,12 +51,12 @@ def create_task(request):
 
 def tasks(request):
     tasks = Task.objects.all()
-    return render_to_response('tasks.html',{'tasks':tasks}) #
+    return render_to_response('tasks.html',{'tasks':tasks}, context_instance=RequestContext(request)) #
 
 def task(request,task_id):
     task = Task.objects.get(id=task_id)
     tasks = Task.objects.exclude(id=task_id)[0:4]
-    return render_to_response('task.html',{'task':task, 'tasks':tasks})
+    return render_to_response('task.html',{'task':task, 'tasks':tasks}, context_instance=RequestContext(request))
     
 
 def profile(request,user_id):
@@ -61,4 +64,20 @@ def profile(request,user_id):
 
 def people(request):
     people = Profile.objects.all()
-    return render_to_response('people.html', {'people': people})
+    return render_to_response('people.html', {'people': people}, context_instance=RequestContext(request))
+    
+def register(request):
+    if request.method == 'POST':
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                new_user = form.save()
+                return HttpResponseRedirect('/')
+    else:
+        form = UserCreationForm()
+    return render( request, "register.html", {'form': form,})
+    
+def log_out(request):
+    logout(request)
+    return index(request)
+    
+    

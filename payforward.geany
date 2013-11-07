@@ -17,20 +17,18 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=2
-FILE_NAME_0=4935;Python;0;16;0;1;1;/home/ruslan/payforward/PayForward/settings.py;0;4
-FILE_NAME_1=23;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/models.py;0;4
-FILE_NAME_2=1925;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/views.py;0;4
-FILE_NAME_3=868;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/tasks.html;0;4
-FILE_NAME_4=836;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/task.html;0;4
-FILE_NAME_5=361;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/forms.py;0;4
-FILE_NAME_6=467;Python;0;16;0;1;1;/home/ruslan/payforward/PayForward/urls.py;0;4
-FILE_NAME_7=1134;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/base.html;0;4
-FILE_NAME_8=840;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/index.html;0;4
-FILE_NAME_9=57;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/create_task.html;0;4
-FILE_NAME_10=119712;CSS;0;16;0;1;1;/home/ruslan/payforward/media/css/bootstrap.css;0;4
-FILE_NAME_11=186;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/login.html;0;4
-FILE_NAME_12=3401;Python;0;16;0;1;1;/home/ruslan/payforward/thumbs.py;0;4
+current_page=10
+FILE_NAME_0=3213;Python;0;16;0;1;1;/home/ruslan/payforward/PayForward/settings.py;0;4
+FILE_NAME_1=224;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/views.py;0;4
+FILE_NAME_2=1812;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/forms.py;0;4
+FILE_NAME_3=543;Python;0;16;0;1;1;/home/ruslan/payforward/PayForward/urls.py;0;4
+FILE_NAME_4=911;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/base.html;0;4
+FILE_NAME_5=1323;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/index.html;0;4
+FILE_NAME_6=89;HTML;0;16;0;1;1;/home/ruslan/payforward/templates/register.html;0;4
+FILE_NAME_7=0;Python;0;16;0;1;1;/home/ruslan/payforward/tasks/models.py;0;4
+FILE_NAME_8=0;Python;0;16;0;1;1;/usr/local/lib/python2.7/dist-packages/django/contrib/auth/views.py;0;4
+FILE_NAME_9=0;Python;0;16;0;1;1;/usr/local/lib/python2.7/dist-packages/django/contrib/auth/urls.py;0;4
+FILE_NAME_10=0;Python;0;16;0;1;1;/usr/local/lib/python2.7/dist-packages/django/http/response.py;0;4
 
 [VTE]
 last_dir=/home/ruslan/payforward

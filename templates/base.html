@@ -17,7 +17,14 @@
                     <li><a href="/people">Люди</a></li>
                     <li><a href="/about">О нас</a></li>
                     <li><a href="/comments">Обсуждение</a></li>
+                    {% if user.is_authenticated %}
+                   <li><a href="{% url tasks.views.profile %}">{{ user }}</a> </li>
+                    <li><a href="{% url tasks.views.log_out %}">Logout</a> </li>
                     
+                    {% else %}
+                    <li><a href="{% url tasks.views.login_user %}">Login</a></li>
+                      <li><a href="{% url tasks.views.register %}">hello, stranger</a></li>
+                    {% endif %}
                 </ul>
                 <a class="navbar-brand navbar-left" href="/">Payforward</a>
             </nav>
@@ -27,7 +34,7 @@
 </div>    
 
 <!--==============================footer=================================-->
-<footer class = "footer">
+<footer class = "footer container-fluid">
  <p> и тогда повсюду на земле словно лампочки</p>
 </footer>
 </body>
