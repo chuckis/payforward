@@ -5914,12 +5914,14 @@ td.visible-print {
 }
 .footer {
     position: relative;
+/*
     margin-top: -150px; /* negative value of footer height */
-    min-height: 200px;
-    clear:both;
+   /* min-height: 200px;
+   /* clear:both;
+*/
     background-image: url(img/footer_bkg.png);
 }
-.container {
+.cont {
     height: auto; 
     min-height: 100%;
     padding-bottom: 200px;
@@ -5937,3 +5939,15 @@ td.visible-print {
     top: 25%;
     background: white;
 }
+
+
+
+.tasks a {
+    display: block;
+    margin: 25px;
+
+}
+.tasks img{
+    margin-top: 12px;
+}
+

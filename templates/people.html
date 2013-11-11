@@ -2,14 +2,21 @@
 {% block content %}
 <!--==============================content================================-->
 
-    <section class="bs-header">
-<div >
+<section class="bs-header">
+<div class="container">
       <div id="form" class="find">
           <input type="text" value="Поиск" onblur="if(this.value=='') this.value='Поиск'" onfocus="if(this.value =='Поиск' ) this.value=''">
       </div>
       <h2>Эти люди творят добрые дела</h2>
-      <div class="clear"></div>
-         {{ people }}
+      <div class="clearfix">
+      {% for user in people %}
+        <a href="#"> {{ user }}</a>
+      {% endfor %}
+      
+      
+      
+      </div>
+         
 </div>
  </section>
 

@@ -7,7 +7,7 @@ from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-#import random
+import random
 from crispy_forms.utils import render_crispy_form #?
 from thumbs import generate_thumb
 
@@ -41,8 +41,8 @@ def create_task(request):
         if form.is_valid():
             task = form.save(commit=False) #commit=False
             if not task.task_photo:
-                number = random.randint(1,6)
-                task.task_photo = 'task_photos/page4-img'+str(number)+'.jpg'
+                number = random.randint(0,59)
+                task.task_photo = 'task_photos/'+str(number)+'.jpg'
             task.user = request.user
             task.save()
             return redirect('/task/'+str(task.id))
@@ -63,8 +63,8 @@ def profile(request,user_id):
     return render_to_response('profile.html')
 
 def people(request):
-    people = Profile.objects.all()
-    return render_to_response('people.html', {'people': people}, context_instance=RequestContext(request))
+    human = User.objects.all()
+    return render_to_response('people.html', {'people': human}, context_instance=RequestContext(request))
     
 def register(request):
     if request.method == 'POST':

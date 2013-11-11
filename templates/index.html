@@ -14,46 +14,76 @@
 {% block content %}
 {% load crispy_forms_tags %}
     
-    <div class="bs-header" id="content"> </div>
-                <div class = "alert">
-                    <p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.</p>
+<div class="bs-header" id="content"> </div>
+    <div class="clearfix">
+    
+        <div class = "left col-xs-6">
+                    <p class="">Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.
+                    Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.Вы можете попросить людей из нашего сообщества сделать что-то нужное для вас. После этого вам нужно будет выполнить любые три просьбы других людей на сайте.    </p>
                 </div>
                     <div class="bootform">
                 
                 {% crispy form form.helper %}
                 
                 </div>
-        {% if user.is_authenticated %}
-        <p><a data-toggle="modal" href="#example" class="btn btn-success btn-large btn-block">Есть просьба!</a></p>
-        {% else %}
-         <p> Прежде чем присоединиться к сообществу вы должны <a href="/register"> зарегистрироваться </a> </p>
-        {% endif %}
+                <div class = "right col-xs-6">
+                            {% if user.is_authenticated %}
+                            <a data-toggle="modal" href="#example" class="btn btn-success">Есть просьба!</a>
+                            {% else %}
+                                <p> Прежде чем присоединиться к сообществу вы должны <a href="/register"> зарегистрироваться </a> </p>
+                            {% endif %}
+                </div>
+    
+    </div>            
 
-<div class="list-group left col-xs-6">
-    <h2 class=" ">Важные просьбы</h2>
-  {% for task in important_tasks %}
-  <a href="/task/{{ task.id }}" class="list-group-item">
-    <h4 class="list-group-item-heading">{{ task.title }}</h4>
-    <p class="list-group-item-text">{{ task.description|slice:"100" }}</p>
-  </a>
-  {% endfor %}
-  
+    <div class="module">
+    
+                <div class="clearfix">
+
+            <div class="tasks important left col-xs-6">
+                <h2 class=" ">Важные просьбы</h2>
+              
+              
+                {% for task in important_tasks %}
+                        
+                          <a href="/task/{{ task.id }}" class="clearfix">
+                            <div class="pull-right col-xs-9">
+                                <h4 class="">{{ task.title }}</h4>
+                            <p class="">{{ task.description|slice:"50" }}</p>
+                            </div>
+                            <img src="{{ task.task_photo.url_50x50 }}" class="left">
+                          </a>
+                    
+                {% endfor %}
+              
+              
+              
+            </div>
+
+            <div class="tasks fresh right col-xs-6">
+                <h2 class=" ">Свежие просьбы</h2>
+                
+              {% for task in fresh_tasks %}
+               
+                      <a href="/task/{{ task.id }}" class="container clearfix">
+                        <div class="pull-right col-xs-9">
+                            <h4 class="list-group-item-heading">{{ task.title }}</h4>
+                        <p class="list-group-item-text">{{ task.description|slice:"50" }}</p>
+                        </div>
+                        <img src="{{ task.task_photo.url_50x50 }}" class="left">
+                      </a>
+              
+              {% endfor %}
+               
+    </div>
+
 </div>
 
-<div class="list-group right col-xs-6">
-    <h2 class=" ">Свежие просьбы</h2>
-  {% for task in fresh_tasks %}
-  <a href="/task/{{ task.id }}" class="list-group-item">
-    <h4 class="list-group-item-heading">{{ task.title }}</h4>
-    <p class="list-group-item-text">{{ task.description|slice:"100" }}</p>
-  </a>
-  {% endfor %}
- 
+<a href="/tasks" class="btn btn-primary">Больше просьб</a>
+    
 </div>
 
 
-
-<div class="container"><a href="/tasks" class="btn btn-primary btn-lg btn-block">Больше просьб</a> </div>
       
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
